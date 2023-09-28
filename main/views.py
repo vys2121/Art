@@ -11,6 +11,10 @@ import random
 from .models import LikePost, Post, profile,Follower
 from django.contrib.auth.models import AbstractUser
 from itertools import chain
+from storages.backends.azure_storage import AzureStorage
+import logging
+logger = logging.getLogger(__name__)
+
 
 
 # Create your views here.
@@ -59,12 +63,61 @@ def index(request):
         username_profile_list.append(profile_list)
     suggestion=list(chain(*username_profile_list))
     if length ==0:
-        post= Post.objects.all()
+        post= Post.objects.all().order_by('created_at')
         return render(request, 'index.html',{'user_profile': user_profile,'posts':post,'suggestion':suggestion[:4]})
     else:
         return render(request, 'index.html',{'user_profile': user_profile,'posts':feed_list,'suggestion':suggestion[:4]})
     
+
+def delete(request, id):
+    try:
+        post = Post.objects.get(id=id)
+        if post.user == request.user.username:
+            path = str(post.image)
+            azure_storage = AzureStorage()
+            azure_storage.delete(path)
+            post.delete()
+
+    except Exception as e:
+        print(f"Error deleting post: {e}")
+        return HttpResponse("An error occurred while deleting the post", status=500)  # Return a 
     
+    return redirect('/index')
+
+def update(request,id):
+    Posts=Post.objects.get(id=id)
+    if(Posts.user==request.user.username):
+        return render(request,'Update.html',{'post':Posts})
+    return redirect('/index')
+
+
+def updatepost(request, id):
+  if request.method=='POST':
+        if request.FILES.get('upload_file')==None:
+            caption1=request.POST['caption']
+            Posts = Post.objects.get(id=id)
+            Posts.caption = caption1
+            Posts.save()
+        elif request.POST['caption']=="":
+            image1=request.FILES.get('upload_file')
+            Posts = Post.objects.get(id=id)
+            azure_storage = AzureStorage()
+            azure_storage.delete(str(Posts.image))
+            print("image deleted")
+            Posts.image = image1
+            Posts.save()
+        else:
+            caption1=request.POST['caption']
+            image1=request.FILES.get('upload_file')
+            Posts = Post.objects.get(id=id)
+            Posts.caption = caption1
+            azure_storage = AzureStorage()
+            azure_storage.delete(str(Posts.image))
+            print("image deleted")
+            Posts.image = image1
+            Posts.save()
+        return redirect('/index')
+
 
 def signup(request):
 

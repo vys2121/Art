@@ -6,8 +6,14 @@ import uuid
 from datetime import datetime
 from django.forms import CharField
 from embed_video.fields import EmbedVideoField
+from django.core.validators import FileExtensionValidator
 
 User= get_user_model()
+
+def generate_filename(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = f'{uuid.uuid4()}.{ext}'
+    return f'post_media/{filename}'
 
 # Create your models here.
 class profile(models.Model):
@@ -26,12 +32,21 @@ class profile(models.Model):
         return self.user.username
 
 class Post(models.Model):
-    id= models.UUIDField(primary_key=True,default=uuid.uuid4)
-    user= models.CharField(max_length=10)
-    image= models.ImageField(upload_to='post_image', blank=True)
-    caption=models.TextField(blank=True)
-    created_at=models.DateTimeField(default=datetime.now)
-    no_of_likes=models.IntegerField(default=0)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    user = models.CharField(max_length=10)
+    image = models.FileField(upload_to=generate_filename, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'gif', 'mp4', 'mov','mkv'])])
+    media_type = models.CharField(max_length=5, blank=True)  # To store 'image' or 'video'.
+    caption = models.TextField(blank=True)
+    created_at = models.DateTimeField(default=datetime.now)
+    no_of_likes = models.IntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        # Set media_type based on the file extension.
+        if self.image.name.endswith(('jpg', 'jpeg', 'png', 'gif')):
+            self.media_type = 'image'
+        elif self.image.name.endswith(('mp4', 'mov','mkv')):
+            self.media_type = 'video'
+        super(Post, self).save(*args, **kwargs)
     
 
     def _str_(self):
