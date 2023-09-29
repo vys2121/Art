@@ -247,13 +247,17 @@ def upload(request):
         user= request.user.username
         image=request.FILES.get('upload_file')
         caption=request.POST['caption']
-        
-
-        new_post=Post.objects.create(user=user, image=image, caption=caption)
-        new_post.save()
+        file_extensions = ('jpg', 'jpeg', 'png', 'gif', 'mp4', 'mov', 'mkv')
+        if str(image).endswith(file_extensions):
+            new_post=Post.objects.create(user=user, image=image, caption=caption)
+            new_post.save()
+            return redirect('/index')
+        else:
+            messages.error(request,"Invalid File Type")
+            return redirect('/index')
     else:
         return redirect('/index')
-    return redirect('/index')
+    
 
 @login_required(login_url='signin')
 def likepost(request):

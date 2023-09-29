@@ -7,6 +7,8 @@ from datetime import datetime
 from django.forms import CharField
 from embed_video.fields import EmbedVideoField
 from django.core.validators import FileExtensionValidator
+from django.core.exceptions import ValidationError
+import os
 
 User= get_user_model()
 
@@ -14,6 +16,12 @@ def generate_filename(instance, filename):
     ext = filename.split('.')[-1]
     filename = f'{uuid.uuid4()}.{ext}'
     return f'post_media/{filename}'
+
+def validate_file_extension(value):
+    allowed_extensions = ['.jpg', '.jpeg', '.png', '.gif','mp4','mkv','mov']  
+    ext = os.path.splitext(value.name)[1]  # Get the file extension
+    if ext not in allowed_extensions:
+        raise ValidationError("Only .jpg, .jpeg, .png, or .gif files are allowed.")
 
 # Create your models here.
 class profile(models.Model):
@@ -34,7 +42,7 @@ class profile(models.Model):
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.CharField(max_length=10)
-    image = models.FileField(upload_to=generate_filename)
+    image = models.FileField(upload_to=generate_filename, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'gif', 'mp4', 'mov', 'mkv'])])
     media_type = models.CharField(max_length=5, blank=True)  # To store 'image' or 'video'.
     caption = models.TextField(blank=True)
     created_at = models.DateTimeField(default=datetime.now)
@@ -44,7 +52,7 @@ class Post(models.Model):
         # Set media_type based on the file extension.
         if self.image.name.endswith(('jpg', 'jpeg', 'png', 'gif')):
             self.media_type = 'image'
-        elif self.image.name.endswith(('mp4', 'mov','mkv')):
+        elif self.image.name.endswith(('mp4', 'mov', 'mkv')):
             self.media_type = 'video'
         super(Post, self).save(*args, **kwargs)
     
