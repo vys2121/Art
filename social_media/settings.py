@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6(13n&q1@1f5(f2ez6$-nzdznt)22kxe*p=)#9-e%jhmnz001l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True
+DEBUG =False
 
 ALLOWED_HOSTS = ['*','artsocial.azurewebsites.net']
 

@@ -222,6 +222,12 @@
 
                         <!-- post 1-->
                         <h2><font size="5px"><b> Posted Arts Works</b></font></h2>
+                        <style>
+                            .message{
+                                color: red;
+                                font-size:10px ;
+                            }
+                        </style>
                         <ul class="messages">
                             {% for message in messages %}
                               <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
