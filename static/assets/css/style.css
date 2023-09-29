@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-
-/* -------------------------------------------------------------- */
-/* Import font
------------------------------------------------------------------ */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap");
  
 
@@ -11,9 +7,6 @@ body{
   background-color: #9ab764
 }
 
-/* ---------------------------------- */
-/* Buttons
-------------------------------------- */
 button {
   vertical-align: middle;
 }
@@ -79,7 +72,6 @@ a.button {
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Icons Aligment*/
 .button i[class^="icon-material"], button.button i[class^="icon-material"] {
   font-size: 18px;
   height: 0;
@@ -146,8 +138,6 @@ a.button i[class^="icon-feather"] {
   margin-left: 3px;
 }
 
-
-/* Bookmark Button */
 span.bookmark-icon {
   font-size: 20px;
   position: absolute;
@@ -252,7 +242,6 @@ span.bookmark-icon {
   }
 }
 
-/* Bookmark Button */
 .bookmark-button {
   background-color: #404040;
   display: inline-block;
@@ -330,9 +319,6 @@ span.bookmark-icon {
   display: none;
 }
 
-/* ---------------------------------- */
-/* Button with sliding icon
-------------------------------------- */
 .button-sliding-icon {
   text-align: center;
 }
@@ -354,7 +340,6 @@ span.bookmark-icon {
           transform: translateX(0);
 }
 
-/* For buttons */
 .button.button-sliding-icon {
   padding-left: 20px;
   padding-right: 10px;
@@ -375,9 +360,6 @@ span.bookmark-icon {
           transform: translateX(0);
 }
 
-/* ---------------------------------- */
-/* Forms Reset & Styles
-------------------------------------- */
 input {
   height: 48px;
   line-height: 48px;
@@ -509,7 +491,6 @@ input.with-border, input[type="text"].with-border, input[type="password"].with-b
           box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.05);
 }
 
-/* With Border */
 textarea.with-border, select.with-border {
   border: 1px solid #e0e0e0;
   -webkit-box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.05);
@@ -546,7 +527,6 @@ input[type="radio"] {
           box-shadow: none;
 }
 
-/* Input Placeholder Color */
 ::-webkit-input-placeholder {
   color: #808080;
   opacity: 1;
@@ -626,9 +606,6 @@ img {
   max-width: 100%;
 }
 
-/* ---------------------------------- */
-/* Input With Icon
-------------------------------------- */
 .input-with-icon {
   display: block;
   position: relative;
@@ -655,7 +632,6 @@ img {
   font-size: 14px;
 }
 
-/* Input with boxed icon */
 .input-with-icon-left {
   position: relative;
 }
@@ -685,9 +661,6 @@ img {
   border: none;
 }
 
-/* ---------------------------------- */
-/* Keywords Input
-------------------------------------- */
 .keywords-container {
   margin-bottom: -15px;
 }
@@ -833,9 +806,6 @@ input.keyword-input {
   margin: 0 0 15px 0;
 }
 
-/* ---------------------------------- */
-/* Checkbox
-------------------------------------- */
 .checkbox {
   display: inline-block;
   margin-bottom: 0;
@@ -907,9 +877,6 @@ input.keyword-input {
   opacity: 1;
 }
 
-/* ---------------------------------- */
-/* Radio Button
-------------------------------------- */
 .radio {
   display: inline-block;
   vertical-align: top;
@@ -1035,9 +1002,6 @@ input.keyword-input {
   top: -1px;
 }
 
-/* ---------------------------------- */
-/* On/Off Switch
-------------------------------------- */
 .switches-list .switch-container {
   width: 100%;
 }
@@ -1188,9 +1152,6 @@ input:checked + .switch-button:before {
   height: 24px;
 }
 
-/* ---------------------------------- */
-/* Common Styles
-------------------------------------- */
 body {
   color: #666;
   font-size: 15px;
@@ -1205,7 +1166,6 @@ body p {
   line-height: 27px;
 }
 
-/* Main Font */
 h1,
 h2,
 h3,
@@ -1238,7 +1198,6 @@ body .pac-container {
   text-transform: none;
 }
 
-/* Headlines */
 h1,
 h2,
 h3,
@@ -1310,13 +1269,6 @@ strong {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, black 100%);
 }
 
-/* -------------------------------------------------------------- */
-/* 02. Vendor (third party assets styles)
------------------------------------------------------------------ */
-
-/* ---------------------------------- */
-/*  Simplebar  
-/* ---------------------------------- */
 [data-simplebar] {
   position: relative;
   -webkit-box-orient: vertical;
@@ -1521,9 +1473,6 @@ strong {
   overflow-x: scroll;
 }
 
-/* -------------------------------------------------------------- */
-/* 03. Layouts
------------------------------------------------------------------ */
 header {
   background-color: #fff;
   left: 0;
@@ -1654,7 +1603,7 @@ header .header_inner .right-side .header-avatar {
   margin-top: 50px;
   border-radius: 5px;
   overflow: hidden;
-  /* simplebar scrollbar */
+  
 }
 
 .header_dropdown ul {
@@ -1873,9 +1822,6 @@ header .uk-dropdown {
   }
 }
 
-/* ---------------------------------- */
-/* Sidebar Navigation
-------------------------------------- */
 .sidebar {
   -webkit-transition: all 300ms 0s ease-in-out;
   transition: all 300ms 0s ease-in-out;
@@ -1889,7 +1835,7 @@ header .uk-dropdown {
   --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);
   -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
           box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  /* simplebar scrollbar */
+
 }
 
 .sidebar .sidebar_header {
@@ -2228,7 +2174,7 @@ header .uk-dropdown {
   transform-origin: left center;
   pointer-events: none;
   -webkit-transition: opacity .2s, -webkit-transform .2s;
-  /* transition: opacity .2s, transform .2s, -webkit-transform .2s; */
+
   font-weight: 500;
   font-size: 13px;
   letter-spacing: -0.24px;
@@ -2297,7 +2243,6 @@ header .uk-dropdown {
   }
 }
 
-/* tragger */
 .btn-mobile {
   border-radius: 5px;
   width: 40px;
@@ -2317,7 +2262,6 @@ header .uk-dropdown {
   position: absolute;
 }
 
-/* tragger */
 .btn-night-mode {
   border-radius: 5px;
   width: 35px;
@@ -2340,10 +2284,6 @@ header .uk-dropdown {
   position: absolute;
 }
 
-
-/* ---------------------------------- */
-/*  market
-------------------------------------- */
 .market-list .item-media {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -2450,16 +2390,13 @@ header .uk-dropdown {
   }
 }
 
-/* ---------------------------------- */
-/* catagroy  card   
-------------------------------------- */
 .group-catagroy-card {
-  /* background-color: #ffffff; */
+  
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 10px;
   position: relative;
-  /* box-shadow: 0px 0px 14px -8px black; */
+ 
   overflow: hidden;
   height: 135px;
   background-size: cover;
@@ -2535,4 +2472,3 @@ header .uk-dropdown {
     position: absolute;
   }
 }
- 

@@ -1,4 +1,4 @@
-/*--- big screen ----*/
+
 
 @media screen and (max-width: 1920px) and (min-width: 1601px) {
     .edit-phto {
@@ -106,7 +106,7 @@
 }
 
 
-/*--- tablet landscape ---*/
+
 
 @media screen and (max-width: 1024px) {
     .topbar {
@@ -300,7 +300,7 @@
 }
 
 
-/*--- tablet view ---*/
+
 
 @media screen and (max-width: 980px) {
     .gap {

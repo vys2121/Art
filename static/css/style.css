@@ -3,9 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
 
 
-/*===============
-***General Styling 
-===============*/
 html,body{
 	font-family: calibri;
     background: rgb(74, 89, 207);
@@ -312,7 +309,7 @@ a:hover.vk {
 }
 
 
-/*carousel nave style*/
+
 
 ul.owl-carousel {
     padding-left: 0;
@@ -395,23 +392,8 @@ iframe {
 }
 
 
-/*======================/
-***** Home page 1 
-======================*/
 
 
-/*-- page loader ----*/
-
-
-/*.se-pre-con {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url(../images/loader.gif) center no-repeat #000;
-}*/
 
 #topcontrol {
         display: flex;
@@ -436,7 +418,6 @@ iframe {
 }
 
 
-/*--- sticky header ---*/
 
 header.stick {
     z-index: 99;
@@ -450,7 +431,7 @@ header.sticky {
 }
 
 
-/*--- landing page ---*/
+
 
 .log-reg-area > h2 {
     font-weight: bold;
@@ -599,7 +580,6 @@ header.sticky {
 }
 
 
-/*--- topbar ---*/
 
 .topbar {
     background: #000;
@@ -722,7 +702,7 @@ header.sticky {
 }
 
 
-/*--- timeline area ---*/
+
 
 .feature-photo .container-fluid {
     padding: 0 43px;
@@ -920,8 +900,6 @@ header.sticky {
 }
 
 
-/*--- dropdowns ---*/
-
 .dropdowns {
     background: #000 none repeat scroll 0 0;
     border: 1px solid #e1e8ed;
@@ -1105,7 +1083,7 @@ header.sticky {
 }
 
 
-/*--- sidebar widgets ---*/
+
 
 .sidebar {
     display: table;
@@ -1258,7 +1236,7 @@ header.sticky {
 
 .central-meta {
     background: #fff none repeat scroll 0 0;
-    /*border: 1px solid pink;*/
+    
     border-radius: 10px;
     box-shadow: 0 0 12px 2px rgba(0, 0, 0, .5);
     display: inline-block;
@@ -1409,7 +1387,7 @@ form button {
 }
 
 
-/*-- sharing post area ----*/
+
 
 .we-video-info {
     float: left;
@@ -1484,7 +1462,7 @@ form button {
 }
 
 
-/*--- social icons opening hovers style ---*/
+
 
 .absolute-center,
 .menu,
@@ -1631,8 +1609,6 @@ form button {
 }
 
 
-/* horrible things are happening here
-for some reason nth-child(1) is always busy and elements starting from 2 */
 
 .rotater:nth-child(1) {
     -webkit-transform: rotate(-22.5deg);
@@ -1743,10 +1719,6 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
 }
 
 
-/*--- social media style end ---*/
-
-
-/*--- comment area ---*/
 
 .coment-area {
     display: inline-block;
@@ -1954,7 +1926,7 @@ li.post-comment .comet-avatar {
 }
 
 
-/*--- search friend widget ---*/
+
 
 #searchDir .filterinput {
     border: 1px solid #eaeaea;
@@ -2041,8 +2013,6 @@ span.status.f-off {
     width: 100%;
 }
 
-
-/*--- footer ---*/
 
 footer {
     background: #000;
@@ -2215,8 +2185,6 @@ footer .logo {
 }
 
 
-/*--- apps widget ---*/
-
 .colla-apps {
     float: left;
     list-style: outside none none;
@@ -2255,7 +2223,7 @@ footer .logo {
 }
 
 
-/*--- bottombar ---*/
+
 
 .bottombar {
     background: #f6f6f6;
@@ -2359,7 +2327,6 @@ footer .logo {
 }
 
 
-/*---- setting panel side ---*/
 
 .toggle-setting {
     border-bottom: 1px dotted #333333;
@@ -2382,7 +2349,7 @@ footer .logo {
 }
 
 
-/*--- toogle switch button ---*/
+
 
 .setting-row input {
     display: none;
@@ -2437,9 +2404,7 @@ footer .logo {
 }
 
 
-/*input[switch]:checked + label {
-    background-color: #33b7a0;
-}*/
+
 
 .setting-row input:checked + label::before {
     color: #000;
@@ -2455,18 +2420,11 @@ footer .logo {
 }
 
 
-/*input[switch="bool"] + label {
-    background-color: #ed6b75;
-}*/
-
 .setting-row input + label::before {
     color: #000;
 }
 
 
-/*input[switch="bool"]:checked + label {
-    background-color: #bce954;
-}*/
 
 .side-panel {
     background: #fefefe;
@@ -2552,7 +2510,6 @@ footer .logo {
 }
 
 
-/*-- widgets ---*/
 
 .sidebar .widget ul.recent-photos li {
     margin-bottom: 5px;
@@ -2567,7 +2524,7 @@ footer .logo {
 }
 
 
-/*-- short profile widget ---*/
+
 
 .short-profile li span {
     display: inline-block;

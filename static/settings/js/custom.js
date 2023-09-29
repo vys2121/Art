@@ -1,60 +1,12 @@
-/*
-Template: SocialV - Responsive Bootstrap 4 Admin Dashboard Template
-Author: iqonicthemes.in
-Design and Developed by: iqonicthemes.in
-NOTE: This file contains the styling for responsive Template.
-*/
-
-/*----------------------------------------------
-Index Of Script
-------------------------------------------------
-
-:: Tooltip
-:: Sidebar Widget
-:: Magnific Popup
-:: Ripple Effect
-:: Page faq
-:: Page Loader
-:: Owl Carousel
-:: Select input
-:: Search input
-:: Scrollbar
-:: Counter
-:: slick
-:: Progress Bar
-:: Page Menu
-:: Page Loader
-:: Wow Animation
-:: Mail Inbox
-:: Chat
-:: Todo
-:: Form Validation
-:: Sidebar Widget
-:: Flatpicker
-
-------------------------------------------------
-Index Of Script
-----------------------------------------------*/
-
 (function(jQuery) {
-
-
 
     "use strict";
 
     jQuery(document).ready(function() {
 
-        /*---------------------------------------------------------------------
-        Tooltip
-        -----------------------------------------------------------------------*/
         jQuery('[data-toggle="popover"]').popover();
         jQuery('[data-toggle="tooltip"]').tooltip();
 
-       
-
-        /*---------------------------------------------------------------------
-        Magnific Popup
-        -----------------------------------------------------------------------*/
         jQuery('.popup-gallery').magnificPopup({
             delegate: 'a.popup-img',
             type: 'image',
@@ -63,7 +15,7 @@ Index Of Script
             gallery: {
                 enabled: true,
                 navigateByImgClick: true,
-                preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+                preload: [0, 1] 
             },
             image: {
                 tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
@@ -81,36 +33,26 @@ Index Of Script
             fixedContentPos: false
         });
 
-
-        /*---------------------------------------------------------------------
-        Ripple Effect
-        -----------------------------------------------------------------------*/
         jQuery(document).on('click', ".iq-waves-effect", function(e) {
-            // Remove any old one
+
             jQuery('.ripple').remove();
-            // Setup
+
             let posX = jQuery(this).offset().left,
                 posY = jQuery(this).offset().top,
                 buttonWidth = jQuery(this).width(),
                 buttonHeight = jQuery(this).height();
 
-            // Add the element
             jQuery(this).prepend("<span class='ripple'></span>");
 
-
-            // Make it round!
             if (buttonWidth >= buttonHeight) {
                 buttonHeight = buttonWidth;
             } else {
                 buttonWidth = buttonHeight;
             }
 
-            // Get the center of the element
             let x = e.pageX - posX - buttonWidth / 2;
             let y = e.pageY - posY - buttonHeight / 2;
 
-
-            // Add the ripples CSS and start the animation
             jQuery(".ripple").css({
                 width: buttonWidth,
                 height: buttonHeight,
@@ -119,9 +61,6 @@ Index Of Script
             }).addClass("rippleEffect");
         });
 
-        /*---------------------------------------------------------------------
-        Page faq
-        -----------------------------------------------------------------------*/
         jQuery('.iq-accordion .iq-accordion-block .accordion-details').hide();
         jQuery('.iq-accordion .iq-accordion-block:first').addClass('accordion-active').children().slideDown('slow');
         jQuery(document).on("click", '.iq-accordion .iq-accordion-block', function() {
@@ -130,18 +69,10 @@ Index Of Script
                 jQuery(this).toggleClass('accordion-active').children('div.accordion-details ').slideDown('slow');
             }
         });
-        
-        /*---------------------------------------------------------------------
-        Page Loader
-        -----------------------------------------------------------------------*/
+
         jQuery("#load").fadeOut();
         jQuery("#loading").delay().fadeOut("");
 
-        
-
-        /*---------------------------------------------------------------------
-       Owl Carousel
-       -----------------------------------------------------------------------*/
         jQuery('.owl-carousel').each(function() {
             let jQuerycarousel = jQuery(this);
             jQuerycarousel.owlCarousel({
@@ -155,23 +86,23 @@ Index Of Script
                 navText: ["<i class='fa fa-angle-left fa-2x'></i>", "<i class='fa fa-angle-right fa-2x'></i>"],
                 responsiveClass: true,
                 responsive: {
-                    // breakpoint from 0 up
+
                     0: {
                         items: jQuerycarousel.data("items-mobile-sm"),
                         nav: false,
                         dots: true
                     },
-                    // breakpoint from 480 up
+
                     480: {
                         items: jQuerycarousel.data("items-mobile"),
                         nav: false,
                         dots: true
                     },
-                    // breakpoint from 786 up
+
                     786: {
                         items: jQuerycarousel.data("items-tab")
                     },
-                    // breakpoint from 1023 up
+
                     1023: {
                         items: jQuerycarousel.data("items-laptop")
                     },
@@ -182,16 +113,10 @@ Index Of Script
             });
         });
 
-        /*---------------------------------------------------------------------
-        Select input
-        -----------------------------------------------------------------------*/
         jQuery('.select2jsMultiSelect').select2({
             tags: true
         });
 
-        /*---------------------------------------------------------------------
-        Search input
-        -----------------------------------------------------------------------*/
         jQuery(document).on('click', function(e) {
             let myTargetElement = e.target;
             let selector, mainElement;
@@ -221,9 +146,6 @@ Index Of Script
             }
         });
 
-        /*---------------------------------------------------------------------
-        Scrollbar
-        -----------------------------------------------------------------------*/
         let Scrollbar = window.Scrollbar;
         if (jQuery('#sidebar-scrollbar').length) {
             Scrollbar.init(document.querySelector('#sidebar-scrollbar'), options);
@@ -233,19 +155,11 @@ Index Of Script
             Scrollbar1.init(document.querySelector('#right-sidebar-scrollbar'), options);
         }
 
-
-
-        /*---------------------------------------------------------------------
-        Counter
-        -----------------------------------------------------------------------*/
         jQuery('.counter').counterUp({
             delay: 10,
             time: 1000
         });
 
-        /*---------------------------------------------------------------------
-        slick
-        -----------------------------------------------------------------------*/
         jQuery('.slick-slider').slick({
             centerMode: true,
             centerPadding: '60px',
@@ -293,7 +207,7 @@ Index Of Script
                     slidesToShow: 1
                 }
             }],
-           
+
         });
 
          jQuery('#recent-music').slick({
@@ -316,7 +230,7 @@ Index Of Script
                     slidesToShow: 1
                 }
             }],
-           
+
         });
 
           jQuery('#top-music').slick({
@@ -339,14 +253,9 @@ Index Of Script
                     slidesToShow: 1
                 }
             }],
-           
+
         });
 
-
-
-        /*---------------------------------------------------------------------
-        Progress Bar
-        -----------------------------------------------------------------------*/
         jQuery('.iq-progress-bar > span').each(function() {
             let progressBar = jQuery(this);
             let width = jQuery(this).data('percent');
@@ -361,10 +270,6 @@ Index Of Script
             }, 100);
         });
 
-
-        /*---------------------------------------------------------------------
-        Page Menu
-        -----------------------------------------------------------------------*/
         jQuery(document).on('click', '.wrapper-menu', function() {
             jQuery(this).toggleClass('open');
         });
@@ -372,12 +277,7 @@ Index Of Script
         jQuery(document).on('click', ".wrapper-menu", function() {
             jQuery("body").toggleClass("sidebar-main");
         });
-        
 
-
-        /*---------------------------------------------------------------------
-        Wow Animation
-        -----------------------------------------------------------------------*/
         let wow = new WOW({
             boxClass: 'wow',
             animateClass: 'animated',
@@ -387,10 +287,6 @@ Index Of Script
         });
         wow.init();
 
-
-        /*---------------------------------------------------------------------
-        Mailbox
-        -----------------------------------------------------------------------*/
         jQuery(document).on('click', 'ul.iq-email-sender-list li', function() {
             jQuery(this).next().addClass('show');
         });
@@ -399,10 +295,6 @@ Index Of Script
             jQuery('.email-app-details').removeClass('show');
         });
 
-
-        /*---------------------------------------------------------------------
-        chatuser
-        -----------------------------------------------------------------------*/
         jQuery(document).on('click', '.chat-head .chat-user-profile', function() {
             jQuery(this).parent().next().toggleClass('show');
         });
@@ -410,9 +302,6 @@ Index Of Script
             jQuery(this).parent().parent().removeClass('show');
         });
 
-        /*---------------------------------------------------------------------
-        chatuser main
-        -----------------------------------------------------------------------*/
         jQuery(document).on('click', '.chat-search .chat-profile', function() {
             jQuery(this).parent().next().toggleClass('show');
         });
@@ -420,9 +309,6 @@ Index Of Script
             jQuery(this).parent().parent().removeClass('show');
         });
 
-        /*---------------------------------------------------------------------
-        Chat start
-        -----------------------------------------------------------------------*/
         jQuery(document).on('click', '#chat-start', function() {
             jQuery('.chat-data-left').toggleClass('show');
         });
@@ -436,9 +322,6 @@ Index Of Script
             jQuery('.chat-data-left').addClass('show');
         });
 
-        /*---------------------------------------------------------------------
-        todo Page
-        -----------------------------------------------------------------------*/
         jQuery(document).on('click', '.todo-task-list > li > a', function() {
             jQuery('.todo-task-list li').removeClass('active');
             jQuery('.todo-task-list .sub-task').removeClass('show');
@@ -449,15 +332,11 @@ Index Of Script
             jQuery('.todo-task-list li li').removeClass('active');
             jQuery(this).parent().toggleClass('active');
         });
-        /*---------------------------------------------------------------------
-        Form Validation
-        -----------------------------------------------------------------------*/
 
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
         window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+
             var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
+
             var validation = Array.prototype.filter.call(forms, function(form) {
                 form.addEventListener('submit', function(event) {
                     if (form.checkValidity() === false) {
@@ -469,9 +348,6 @@ Index Of Script
             });
         }, false);
 
-        /*---------------------------------------------------------------------
-        Sidebar Widget
-        -----------------------------------------------------------------------*/
         jQuery(document).ready(function() {
             jQuery().on('click', '.todo-task-lists li', function() {
                 if (jQuery(this).find('input:checkbox[name=todo-check]').is(":checked")) {
@@ -482,23 +358,15 @@ Index Of Script
                     jQuery(this).find('input:checkbox[name=todo-check]').attr("checked", true);
                     jQuery(this).addClass('active-task');
                 }
-               
+
             });
         });
 
-       
-
-        /*------------------------------------------------------------------
-        Flatpicker
-        * -----------------------------------------------------------------*/
         if (typeof flatpickr !== 'undefined' && jQuery.isFunction(flatpickr)) {
             jQuery(".flatpicker").flatpickr({
                 inline: true
             });
         }
-
-        
-
 
     });
 

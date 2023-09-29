@@ -2,7 +2,7 @@
 	"use strict";
 	$.fn.userincr=function(options) {
 	options=$.extend({},$.fn.userincr.defaults,options ||{});
-	// ??? optins is shared between all invocations of a function?
+
 	return this.each(function(){
 	var edit=$(this);
 	var oldvalue=edit.val();
@@ -10,7 +10,7 @@
 	var delta=1;
 	edit.attr('title',(options.title) || edit.attr('title') || 'Enter "+x" or "+x%" or "*x" \nto change increment');
 	edit.on('change',function(e){
-	// console.log('change-handler-enter');
+
 	var v=edit.val();
 	if(0) {
 	} else if( '%'==v.substr(-1) ) {
@@ -36,7 +36,7 @@
 	}
 	limit_val();
 	oldvalue=edit.val();
-	// console.log('change-handler-exit');
+
 	});
 	var limit_val=function(){
 	var t=edit.data('min')
@@ -55,7 +55,7 @@
 	limit_val();
 	btn[spinop==='dec'?0:1].focus();
 	oldvalue=edit.val();
-	// console.log('trigger-spin');
+
 	edit.trigger('spin');
 	};
 
@@ -87,6 +87,6 @@
 	}
 	};
 	$.fn.userincr.defaults={
-	buttonlabels:{ dec:'â–¼',inc:'â–²'} //â— â–· â—€ â–¶ â–½ â–³ â–¼ â–²
+	buttonlabels:{ dec:'â–¼',inc:'â–²'} 
 	};
 	}(jQuery));

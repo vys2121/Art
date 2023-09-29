@@ -1,6 +1,4 @@
-/*=========================
-	FONT COLOR
-=========================*/
+
 .product-carousel .owl-nav .owl-prev::before, 
 .product-carousel .owl-nav .owl-next::before,
 .product-caro .owl-prev:hover:before, 
@@ -94,9 +92,7 @@ path.icon{
 }
 
 
-/*=========================
-	BACKGROUND COLOR
-=========================*/
+
 #nprogress .bar,
 .timeline-info > ul li a::before,
 .add-btn > a,
@@ -153,9 +149,6 @@ a.addnewforum,
 
 
 
-/*=========================
-	BORDER COLOR
-=========================*/
 .topbar .form-search input:focus,
 .add-btn > a:hover,
 .edit-phto:hover,

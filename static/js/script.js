@@ -1,26 +1,22 @@
 jQuery(document).ready(function($) {
-	
+
 	"use strict";
-	
-//------- Notifications Dropdowns
+
   $('.top-area > .setting-area > li').on("click",function(){
 	$(this).siblings().children('div').removeClass('active');
 	$(this).children('div').addClass('active');
 	return false;
   });
-//------- remove class active on body
+
   $("body *").not('.top-area > .setting-area > li').on("click", function() {
 	$(".top-area > .setting-area > li > div").removeClass('active');		
  });
-	
 
-//--- user setting dropdown on topbar	
 $('.user-img').on('click', function() {
 	$('.user-setting').toggleClass("active");
 	return false;
 });	
-	
-//--- side message box	
+
 $('.friendz-list > li, .chat-users > li').on('click', function() {
 	$('.chat-box').addClass("show");
 	return false;
@@ -29,36 +25,30 @@ $('.friendz-list > li, .chat-users > li').on('click', function() {
 		$('.chat-box').removeClass("show");
 		return false;
 	});	
-	
-//------ scrollbar plugin
+
 	if ($.isFunction($.fn.perfectScrollbar)) {
 		$('.dropdowns, .twiter-feed, .invition, .followers, .chatting-area, .peoples, #people-list, .chat-list > ul, .message-list, .chat-users, .left-menu').perfectScrollbar();
 	}
 
-/*--- socials menu scritp ---*/	
 	$('.trigger').on("click", function() {
 	    $(this).parent(".menu").toggleClass("active");
 	  });
-	
-/*--- emojies show on text area ---*/	
+
 	$('.add-smiles > span').on("click", function() {
 	    $(this).parent().siblings(".smiles-bunch").toggleClass("active");
 	  });
 
-// delete notifications
 $('.notification-box > ul li > i.del').on("click", function(){
     $(this).parent().slideUp();
 	return false;
   }); 	
 
-/*--- socials menu scritp ---*/	
 	$('.f-page > figure i').on("click", function() {
 	    $(".drop").toggleClass("active");
 	  });
 
-//===== Search Filter =====//
 	(function ($) {
-	// custom css expression for a case-insensitive contains()
+
 	jQuery.expr[':'].Contains = function(a,i,m){
 	  return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
 	};
@@ -84,23 +74,19 @@ $('.notification-box > ul li > i.del').on("click", function(){
 	  });
 	}
 
-//search friends widget
 	$(function () {
 	  listFilter($("#searchDir"), $("#people-list"));
 	});
 	}(jQuery));	
 
-//progress line for page loader
 	$('body').show();
 	NProgress.start();
 	setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 2000);
-	
-//--- bootstrap tooltip	
+
 	$(function () {
 	  $('[data-toggle="tooltip"]').tooltip();
 	});
-	
-// Sticky Sidebar & header
+
 	if($(window).width() < 769) {
 		jQuery(".sidebar").children().removeClass("stick-widget");
 	}
@@ -111,23 +97,20 @@ $('.notification-box > ul li > i.del').on("click", function(){
 			offset_top: 60,
 		});
 
-		
 		$('.stick').stick_in_parent({
 		    parent: 'body',
             offset_top: 0,
 		});
-		
+
 	}
-	
-/*--- topbar setting dropdown ---*/	
+
 	$(".we-page-setting").on("click", function() {
 	    $(".wesetting-dropdown").toggleClass("active");
 	  });	
-	  
-/*--- topbar toogle setting dropdown ---*/	
+
 $('#nightmode').on('change', function() {
     if ($(this).is(':checked')) {
-        // Show popup window
+
         $(".theme-layout").addClass('black');	
     }
 	else {
@@ -135,18 +118,16 @@ $('#nightmode').on('change', function() {
     }
 });
 
-//chosen select plugin
 if ($.isFunction($.fn.chosen)) {
 	$("select").chosen();
 }
 
-//----- add item plus minus button
 if ($.isFunction($.fn.userincr)) {
 	$(".manual-adjust").userincr({
 		buttonlabels:{'dec':'-','inc':'+'},
 	}).data({'min':0,'max':20,'step':1});
 }	
-	
+
 if ($.isFunction($.fn.loadMoreResults)) {	
 	$('.loadMore').loadMoreResults({
 		displayedItems: 3,
@@ -157,7 +138,7 @@ if ($.isFunction($.fn.loadMoreResults)) {
 		}
 	});	
 }
-	//===== owl carousel  =====//
+
 	if ($.isFunction($.fn.owlCarousel)) {
 		$('.sponsor-logo').owlCarousel({
 			items: 6,
@@ -185,8 +166,7 @@ if ($.isFunction($.fn.loadMoreResults)) {
 
 		});
 	}
-	
-// slick carousel for detail page
+
 	if ($.isFunction($.fn.slick)) {
 	$('.slider-for-gold').slick({
 		slidesToShow: 1,
@@ -196,7 +176,7 @@ if ($.isFunction($.fn.loadMoreResults)) {
 		fade: false,
 		asNavFor: '.slider-nav-gold'
 	});
-	
+
 	$('.slider-nav-gold').slick({
 		slidesToShow: 3,
 		slidesToScroll: 1,
@@ -248,12 +228,9 @@ if ($.isFunction($.fn.loadMoreResults)) {
 		]
 	});
 }
-	
-//---- responsive header
-	
+
 $(function() {
 
-	//	create the menus
 	$('#menu').mmenu();
 	$('#shoppingbag').mmenu({
 		navbar: {
@@ -264,21 +241,18 @@ $(function() {
 		}
 	});
 
-	//	fire the plugin
 	$('.mh-head.first').mhead({
 		scroll: {
 			hide: 200
 		}
-		
+
 	});
 	$('.mh-head.second').mhead({
 		scroll: false
 	});
 
-	
 });		
 
-//**** Slide Panel Toggle ***//
 	  $("span.main-menu").on("click", function(){
 	     $(".side-panel").addClass('active');
 		  $(".theme-layout").addClass('active');
@@ -288,31 +262,26 @@ $(function() {
 	  $('.theme-layout').on("click",function(){
 		  $(this).removeClass('active');
 	     $(".side-panel").removeClass('active');
-		  
-	     
+
 	  });
 
-	  
-// login & register form
 	$('button.signup').on("click", function(){
 		$('.login-reg-bg').addClass('show');
 		return false;
 	  });
-	  
+
 	  $('.already-have').on("click", function(){
 		$('.login-reg-bg').removeClass('show');
 		return false;
 	  });
-	
-//----- count down timer		
+
 	if ($.isFunction($.fn.downCount)) {
 		$('.countdown').downCount({
 			date: '11/12/2018 12:00:00',
 			offset: +10
 		});
 	}
-	
-/** Post a Comment **/
+
 jQuery(".post-comt-box textarea").on("keydown", function(event) {
 
 	if (event.keyCode == 13) {
@@ -323,25 +292,18 @@ jQuery(".post-comt-box textarea").on("keydown", function(event) {
 		jQuery(this).val('');
 	}
 }); 
-	
-//inbox page 	
-//***** Message Star *****//  
+
     $('.message-list > li > span.star-this').on("click", function(){
     	$(this).toggleClass('starred');
     });
 
-
-//***** Message Important *****//
     $('.message-list > li > span.make-important').on("click", function(){
     	$(this).toggleClass('important-done');
     });
 
-    
-
-// Listen for click on toggle checkbox
 	$('#select_all').on("click", function(event) {
 	  if(this.checked) {
-	      // Iterate each checkbox
+
 	      $('input:checkbox.select-message').each(function() {
 	          this.checked = true;
 	      });
@@ -353,7 +315,6 @@ jQuery(".post-comt-box textarea").on("keydown", function(event) {
 	  }
 	});
 
-
 	$(".delete-email").on("click",function(){
 		$(".message-list .select-message").each(function(){
 			  if(this.checked) {
@@ -362,14 +323,10 @@ jQuery(".post-comt-box textarea").on("keydown", function(event) {
 		});
 	});
 
-// change background color on hover
 	$('.category-box').hover(function () {
 		$(this).addClass('selected');
 		$(this).parent().siblings().children('.category-box').removeClass('selected');
 	});
-	
-	
-//------- offcanvas menu 
 
 	const menu = document.querySelector('#toggle');  
 	const menuItems = document.querySelector('#overlay');  
@@ -387,8 +344,7 @@ jQuery(".post-comt-box textarea").on("keydown", function(event) {
 	if( menu ) {
 		menu.addEventListener('click', toggleMenu, false);	
 	}
-	
-// Responsive nav dropdowns
+
 	$('.offcanvas-menu li.menu-item-has-children > a').on('click', function () {
 		$(this).parent().siblings().children('ul').slideUp();
 		$(this).parent().siblings().removeClass('active');
@@ -396,12 +352,5 @@ jQuery(".post-comt-box textarea").on("keydown", function(event) {
 		$(this).parent().toggleClass('active');
 		return false;
 	});	
-	
 
-
-});//document ready end
-
-
-
-
-
+});
