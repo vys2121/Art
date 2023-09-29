@@ -34,7 +34,7 @@ class profile(models.Model):
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.CharField(max_length=10)
-    image = models.FileField(upload_to=generate_filename, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'gif', 'mp4', 'mov','mkv'])])
+    image = models.FileField(upload_to=generate_filename)
     media_type = models.CharField(max_length=5, blank=True)  # To store 'image' or 'video'.
     caption = models.TextField(blank=True)
     created_at = models.DateTimeField(default=datetime.now)
