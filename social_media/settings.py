@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6(13n&q1@1f5(f2ez6$-nzdznt)22kxe*p=)#9-e%jhmnz001l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+DEBUG =True
 
 ALLOWED_HOSTS = ['*','artsocial.azurewebsites.net']
 
@@ -129,13 +129,9 @@ STATIC_URL = '/static/'
 MEDIA_URL ='/media/'
 
 
-if DEBUG:
 
-  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-else:
-
-  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 
