@@ -92,32 +92,29 @@ def update(request,id):
 
 
 def updatepost(request, id):
-  if request.method=='POST':
-        if request.FILES.get('upload_file')==None:
-            caption1=request.POST['caption']
-            Posts = Post.objects.get(id=id)
-            Posts.caption = caption1
-            Posts.save()
-        elif request.POST['caption']=="":
-            image1=request.FILES.get('upload_file')
+    if request.method == 'POST':
+        file_extensions = ('jpg', 'jpeg', 'png', 'gif', 'mp4', 'mov', 'mkv')
+        image1 = request.FILES.get('upload_file')
+        caption1 = request.POST['caption']
+
+        if image1:
+            file_extension = image1.name.split('.')[-1].lower()
+            if file_extension not in file_extensions:
+                messages.error(request, "Invalid File Type Uploaded in Update Post")
+                return redirect('/index')
+
             Posts = Post.objects.get(id=id)
             azure_storage = AzureStorage()
             azure_storage.delete(str(Posts.image))
-            print("image deleted")
             Posts.image = image1
+            Posts.caption = caption1
             Posts.save()
         else:
-            caption1=request.POST['caption']
-            image1=request.FILES.get('upload_file')
             Posts = Post.objects.get(id=id)
             Posts.caption = caption1
-            azure_storage = AzureStorage()
-            azure_storage.delete(str(Posts.image))
-            print("image deleted")
-            Posts.image = image1
             Posts.save()
-        return redirect('/index')
 
+    return redirect('/index')
 
 def signup(request):
 
