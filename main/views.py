@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from numpy import delete
 from requests import request
+from django.utils.safestring import mark_safe
 #
 import random
 from .models import LikePost, Post, profile,Follower
@@ -247,13 +248,17 @@ def upload(request):
         user= request.user.username
         image=request.FILES.get('upload_file')
         caption=request.POST['caption']
-        
-
-        new_post=Post.objects.create(user=user, image=image, caption=caption)
-        new_post.save()
+        file_extensions = ('jpg', 'jpeg', 'png', 'gif', 'mp4', 'mov', 'mkv')
+        if str(image).endswith(file_extensions):
+            caption = mark_safe(caption) # marking the string as safe allows HTML/JS to be rendered
+            new_post=Post.objects.create(user=user, image=image, caption=caption)
+            new_post.save()
+            return redirect('/index')
+        else:
+            messages.error(request,"Invalid File Type")
+            return redirect('/index')
     else:
         return redirect('/index')
-    return redirect('/index')
 
 @login_required(login_url='signin')
 def likepost(request):
