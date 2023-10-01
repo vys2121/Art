@@ -248,15 +248,10 @@ def upload(request):
         user= request.user.username
         image=request.FILES.get('upload_file')
         caption=request.POST['caption']
-        file_extensions = ('jpg', 'jpeg', 'png', 'gif', 'mp4', 'mov', 'mkv')
-        if str(image).endswith(file_extensions):
-            caption = mark_safe(caption) # marking the string as safe allows HTML/JS to be rendered
-            new_post=Post.objects.create(user=user, image=image, caption=caption)
-            new_post.save()
-            return redirect('/index')
-        else:
-            messages.error(request,"Invalid File Type")
-            return redirect('/index')
+        caption = mark_safe(caption) # marking the string as safe allows HTML/JS to be rendered
+        new_post=Post.objects.create(user=user, image=image, caption=caption)
+        new_post.save()
+        return redirect('/index')
     else:
         return redirect('/index')
 
