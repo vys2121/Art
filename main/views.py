@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from numpy import delete
 from requests import request
+
 #
 import random
 from .models import LikePost, Post, profile,Follower
@@ -254,6 +255,8 @@ def upload(request):
             return redirect('/index')
     else:
         return redirect('/index')
+
+
     
 
 @login_required(login_url='signin')
