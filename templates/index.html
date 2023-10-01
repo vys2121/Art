@@ -376,7 +376,7 @@
                                 </div>
                                 <b>Description About Picture From the {{post.user}}:</b>
                                 <br>
-                                {{post.caption}}
+                                {{ post.caption|safe }}
                                 <!-- <div class="flex items-center space-x-3">  -->
                                     <!-- <div class="flex items-center">
                                         <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white ">
