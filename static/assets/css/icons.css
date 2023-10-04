@@ -1,7 +1,3 @@
-/*!
- * Feather Icons (https://feathericons.com/)
- * Licensed under MIT
- */
 @font-face {
   font-family: 'Feather-Icons';
   src: url("../fonts/Feather-Iconse198.ttf?7ncawf") format("truetype"), url("../fonts/Feather-Iconse198.woff?7ncawf") format("woff"), url("../fonts/Feather-Iconse198.svg?7ncawf#Feather-Icons") format("svg");
@@ -10,7 +6,7 @@
 }
 
 [class^="icon-feather-"], [class*=" icon-feather-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
+  
   font-family: 'Feather-Icons' !important;
   speak: none;
   font-style: normal;
@@ -18,7 +14,7 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  /* Better Font Rendering =========== */
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1095,7 +1091,7 @@
 }
 
 [class^="icon-brand-"], [class*=" icon-brand-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
+  
   font-family: 'Brand-Icons' !important;
   speak: none;
   font-style: normal;
@@ -1103,7 +1099,7 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  /* Better Font Rendering =========== */
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -2573,21 +2569,21 @@
   display: inline-block;
   text-decoration: inherit;
   text-align: center;
-  /* For safety - reset parent styles, that can break glyph codes*/
+  
   font-variant: normal;
   text-transform: none;
-  /* fix buttons height, for twitter bootstrap */
+  
   line-height: 1em;
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  /* You can be more comfortable with increased icons size */
+  
+  
+  
   font-size: 120%;
-  /* Font smoothing. That was taken from TWBS */
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-  /* Better Font Rendering =========== */
+  
+  
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -7052,10 +7048,6 @@
   content: '\e92b';
 }
 
-/*!
- * Material Icons (https://material.io/tools/icons/)
- * Apache license version 2.0
- */
 @font-face {
   font-family: 'Material-Icons';
   src: url("../fonts/Material-Iconsb7df.ttf?e8u1sb") format("truetype"), url("../fonts/Material-Iconsb7df.woff?e8u1sb") format("woff"), url("../fonts/Material-Iconsb7df.svg?e8u1sb#Material-Icons") format("svg");
@@ -7064,7 +7056,7 @@
 }
 
 [class^="icon-material-"], [class*=" icon-material-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
+  
   font-family: 'Material-Icons' !important;
   speak: none;
   font-style: normal;
@@ -7072,7 +7064,7 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  /* Better Font Rendering =========== */
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -7684,4 +7676,3 @@
 .icon-material-outline-where-to-vote:before {
   content: "\e992";
 }
-/*# sourceMappingURL=icons.css.map */

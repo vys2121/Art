@@ -1,5 +1,3 @@
-/*! UIkit 3.2.1 | http://www.getuikit.com | (c) 2014 - 2019 YOOtheme | MIT License */
-
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define('uikit', factory) :
@@ -4050,7 +4048,7 @@
 
                 });
 
-                // Force click event anywhere on iOS < 13
+                
                 if (pointerDown === 'touchstart') {
                     css(document.body, 'cursor', 'pointer');
                     once(document, (pointerUp + " " + pointerCancel), function () { return setTimeout(function () { return css(document.body, 'cursor', ''); }
