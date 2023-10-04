@@ -18,7 +18,7 @@ from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
 credential = DefaultAzureCredential()
-client = SecretClient(vault_url="https://my-key-vault.vault.azure.net/", credential=credential)
+client = SecretClient(vault_url="https://arts1.vault.azure.net/", credential=credential)
 
 # AZURE_CLIENT_ID='97220d23-ee79-4084-8838-41e5738d781a'
 # AZURE_TENANT_ID='9666bd92-1d1e-478d-9d59-b08f9e07ef5c'
