@@ -1,4 +1,4 @@
-
+//google map
 if ($("#map-canvas").length) {
 jQuery(document).ready(function($) {
 	

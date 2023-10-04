@@ -1,4 +1,12 @@
-
+/*!
+ * backgroundVideo v2.0.2
+ * https://github.com/linnett/backgroundVideo
+ * Use HTML5 video to create an effect like the CSS property,
+ * 'background-size: cover'. Includes parallax option.
+ *
+ * Copyright 2016 Sam Linnett <linnettsam@gmail.com>
+ * @license http://www.opensource.org/licenses/mit-license.html MIT License
+ */
 'use strict';
 
 (function(root, factory) {
@@ -28,6 +36,9 @@
     onReady: function() {}
   };
 
+  /**
+   * Some private helper function
+   */
   const addClass = function (el, className) {
     if (el.classList) {
       el.classList.add(className);
