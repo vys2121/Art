@@ -15,21 +15,25 @@ import os
 from storages.backends.azure_storage import AzureStorage
 from azure.identity import ClientSecretCredential
 from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
 
-AZURE_CLIENT_ID='97220d23-ee79-4084-8838-41e5738d781a'
-AZURE_TENANT_ID='9666bd92-1d1e-478d-9d59-b08f9e07ef5c'
-AZURE_CLIENT_SECRET='QP68Q~mc_toZM81OnPGXzrAAvv25H~gS4m7XPbxm'
-AZURE_VAULT_URL='https://arts1.vault.azure.net/'
+credential = DefaultAzureCredential()
+client = SecretClient(vault_url="https://my-key-vault.vault.azure.net/", credential=credential)
 
-credentials=ClientSecretCredential(client_id=AZURE_CLIENT_ID,client_secret=AZURE_CLIENT_SECRET,tenant_id=AZURE_TENANT_ID)
+# AZURE_CLIENT_ID='97220d23-ee79-4084-8838-41e5738d781a'
+# AZURE_TENANT_ID='9666bd92-1d1e-478d-9d59-b08f9e07ef5c'
+# AZURE_CLIENT_SECRET='QP68Q~mc_toZM81OnPGXzrAAvv25H~gS4m7XPbxm'
+# AZURE_VAULT_URL='https://arts1.vault.azure.net/'
 
-client=SecretClient(vault_url=AZURE_VAULT_URL,credential=credentials)
+# credentials=ClientSecretCredential(client_id=AZURE_CLIENT_ID,client_secret=AZURE_CLIENT_SECRET,tenant_id=AZURE_TENANT_ID)
+
+# client=SecretClient(vault_url=AZURE_VAULT_URL,credential=credentials)
 
 
 DEFAULT_FILE_STORAGE = client.get_secret("DEFAULT-FILE-STORAGE").value
-AZURE_ACCOUNT_NAME = 'djangomedia1'
-AZURE_CONTAINER = 'media'
-AZURE_ACCOUNT_KEY='FJdkBTDuVrAPBOdTr3qS8xazGfquVZL91bfujHXhoUhueXTTH/axLVnXPzSZfg8WrIE1Vw6wPdcE+AStzw9obA=='
+AZURE_ACCOUNT_NAME = client.get_secret("AZURE-ACCOUNT-NAME").value
+AZURE_CONTAINER = client.get_secret("AZURE-CONTAINER").value
+AZURE_ACCOUNT_KEY=client.get_secret("AZURE-ACCOUNT-KEY").value
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +43,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6(13n&q1@1f5(f2ez6$-nzdznt)22kxe*p=)#9-e%jhmnz001l'
+SECRET_KEY = client.get_secret("SECRET-KEY").value
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =False
@@ -97,23 +101,23 @@ CSRF_TRUSTED_ORIGINS = ['https://artsocial1.azurewebsites.net']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'application_database',
-        'USER': 'vys',
-        'PASSWORD': 'vyom@1802',
-        'HOST': 'arts1.mysql.database.azure.com',
-        'PORT': '3306',
+        'ENGINE': client.get_secret("DB-ENGINE").value,
+        'NAME': client.get_secret("DB-NAME").value,
+        'USER': client.get_secret("DB-USER").value,
+        'PASSWORD': client.get_secret("DB-PASSWORD").value,
+        'HOST': client.get_secret("DB-HOST").value,
+        'PORT': client.get_secret("DB-PORT").value,
         'OPTIONS': {'ssl': True}
     }
     
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'vys2121209@sicsr.ac.in'
-EMAIL_HOST_PASSWORD = 'ganesha@#1'
+EMAIL_BACKEND = client.get_secret("EMAIL-BACKEND").value,
+EMAIL_HOST = client.get_secret("EMAIL-HOST").value,
+EMAIL_PORT = client.get_secret("EMAIL-PORT").value,
+EMAIL_USE_TLS = client.get_secret("EMAIL-USE-TLS").value,
+EMAIL_HOST_USER = client.get_secret("EMAIL-HOST-USER").value,
+EMAIL_HOST_PASSWORD = client.get_secret("EMAIL-HOST-PASSWORD").value,
 
 
 
