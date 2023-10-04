@@ -13,8 +13,20 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 from storages.backends.azure_storage import AzureStorage
+from azure.identity import ClientSecretCredential
+from azure.keyvault.secrets import SecretClient
 
-DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+AZURE_CLIENT_ID='97220d23-ee79-4084-8838-41e5738d781a'
+AZURE_TENANT_ID='9666bd92-1d1e-478d-9d59-b08f9e07ef5c'
+AZURE_CLIENT_SECRET='QP68Q~mc_toZM81OnPGXzrAAvv25H~gS4m7XPbxm'
+AZURE_VAULT_URL='https://arts1.vault.azure.net/'
+
+credentials=ClientSecretCredential(client_id=AZURE_CLIENT_ID,client_secret=AZURE_CLIENT_SECRET,tenant_id=AZURE_TENANT_ID)
+
+client=SecretClient(vault_url=AZURE_VAULT_URL,credential=credentials)
+
+
+DEFAULT_FILE_STORAGE = client.get_secret("DEFAULT-FILE-STORAGE").value
 AZURE_ACCOUNT_NAME = 'djangomedia1'
 AZURE_CONTAINER = 'media'
 AZURE_ACCOUNT_KEY='FJdkBTDuVrAPBOdTr3qS8xazGfquVZL91bfujHXhoUhueXTTH/axLVnXPzSZfg8WrIE1Vw6wPdcE+AStzw9obA=='
